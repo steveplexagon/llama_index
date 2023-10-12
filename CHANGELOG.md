@@ -15,6 +15,8 @@
 - Added `QueryFusionRetriever` for merging multiple retrievers + query augmentation (#8100)
 - Added `nb-clean` to `pre-commit` to minimize PR diffs (#8108)
 - Support for `TextEmbeddingInference` embeddings (#8122)
+- Support for Hugging Face Inference API's `conversational`, `text_generation`,
+  and `feature_extraction` endpoints via `huggingface_hub[inference]` (#8098)
 
 ### Bug Fixes / Nits
 
