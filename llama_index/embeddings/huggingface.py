@@ -8,6 +8,7 @@ from llama_index.embeddings.huggingface_utils import (
     get_query_instruct_for_model_name,
     get_text_instruct_for_model_name,
 )
+from llama_index.llms.huggingface import HuggingFaceInferenceAPI
 from llama_index.utils import get_cache_dir
 
 
@@ -201,3 +202,6 @@ class HuggingFaceEmbedding(BaseEmbedding):
         """Get text embeddings."""
         texts = [self._format_text(text) for text in texts]
         return self._embed(texts)
+
+
+HuggingFaceInferenceAPIEmbedding = HuggingFaceInferenceAPI
