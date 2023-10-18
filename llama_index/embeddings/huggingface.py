@@ -219,7 +219,7 @@ class HuggingFaceInferenceAPIEmbeddings(HuggingFaceInferenceAPI, Embeddings):
     Wrapper on the Hugging Face's Inference API for embeddings.
 
     Overview of the design:
-    - Implemented against LangChain's embeddings.
+    - Implemented against LangChain's embeddings
     - Uses the feature extraction task: https://huggingface.co/tasks/feature-extraction
     """
 
@@ -236,7 +236,11 @@ class HuggingFaceInferenceAPIEmbeddings(HuggingFaceInferenceAPI, Embeddings):
         return "HuggingFaceInferenceAPIEmbeddings"
 
     def embed_documents(self, texts: List[str]) -> List[Embedding]:
-        """Embed a bunch of texts, in parallel."""
+        """
+        Embed a bunch of texts, in parallel.
+
+        Note: a new event loop is created internally for the embeddings.
+        """
         loop = asyncio.new_event_loop()
         try:
             tasks = [loop.create_task(self.aembed_query(text)) for text in texts]
@@ -249,6 +253,11 @@ class HuggingFaceInferenceAPIEmbeddings(HuggingFaceInferenceAPI, Embeddings):
         return self.embed_documents(texts=[text])[0]
 
     async def aembed_documents(self, texts: List[str]) -> List[Embedding]:
+        """
+        Embed a bunch of texts, in parallel and asynchronously.
+
+        Note: embeddings are done within an externally created event loop.
+        """
         loop = asyncio.get_event_loop()
         tasks = [loop.create_task(self.aembed_query(text)) for text in texts]
         await asyncio.wait(tasks)
