@@ -5,6 +5,7 @@
 ### New Features
 
 - Added support for `LLMRailsEmbeddings` (#8169)
+- Consolidated query/text prepending (#8189)
 
 ## [0.8.46] - 2023-10-18
 
