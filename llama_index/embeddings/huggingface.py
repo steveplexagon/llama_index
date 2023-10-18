@@ -1,5 +1,5 @@
 import asyncio
-from typing import TYPE_CHECKING, Any, List, Optional
+from typing import Any, List, Optional
 
 from langchain.schema.embeddings import Embeddings
 
@@ -15,11 +15,9 @@ from llama_index.embeddings.huggingface_utils import (
     get_query_instruct_for_model_name,
     get_text_instruct_for_model_name,
 )
+from llama_index.embeddings.pooling import Pooling
 from llama_index.llms.huggingface import HuggingFaceInferenceAPI
 from llama_index.utils import get_cache_dir
-
-if TYPE_CHECKING:
-    from llama_index.embeddings.utils import Pooling
 
 
 class HuggingFaceEmbedding(BaseEmbedding):
