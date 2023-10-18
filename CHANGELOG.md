@@ -6,6 +6,10 @@
 
 - Added support for `LLMRailsEmbeddings` (#8169)
 
+### Bug Fixes / Nits
+
+- Fixed missing spaces in prompt templates (#8190)
+
 ## [0.8.46] - 2023-10-18
 
 ### New Features
