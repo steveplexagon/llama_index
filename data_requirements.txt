@@ -20,3 +20,4 @@ vellum-ai==0.0.15
 elasticsearch==8.9.0
 
 tree_sitter_languages
+urllib3>=2.2.2 # not directly required, pinned by Snyk to avoid a vulnerability
