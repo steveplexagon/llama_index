@@ -9,3 +9,4 @@ sphinx-autobuild
 sphinx_rtd_theme
 pydantic<2.0.0
 autodoc_pydantic
+setuptools>=70.0.0 # not directly required, pinned by Snyk to avoid a vulnerability
